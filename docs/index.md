@@ -1,6 +1,6 @@
 # A fake KeywordLogger could integrate Extent Reports into Katalon project nicely
 
-[The repository]({ReposURLPrefix}/)
+[The repository](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/)
 
 ## Problem to solve
 

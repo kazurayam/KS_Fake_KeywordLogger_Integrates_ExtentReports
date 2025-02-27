@@ -1,5 +1,8 @@
 :PagesURLPrefix: https://kazurayam.github.io/KS_Fake_KeywordLogger_Integrates_ExtentReports
 
+:ReposURLPrefix: https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports
+
+
 = A fake KeywordLogger could integrate Extent Reports into Katalon project nicely
 
 link:{ReposURLPrefix}/[The repository]
@@ -72,7 +75,6 @@ $ tree -P *.jar
 
 I started reading the source codes to find out how a call `WebUI.comment("雨ニモマケズ")` propagates through the call chains and how the message is written into the Console tab and the HTML report file located at `Reports/yyyyMMdd_hhmmss/TS1/yyyyMMdd_hhmmss/execution0.log` file. Eventurally I found it. Let me trace the path that I went through.
 
-:ReposURLPrefix: https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports
 
 :SourceURLPrefix: {ReposURLPrefix}/blob/main/docs/katalon-studio-source/10.0.0/source
 
