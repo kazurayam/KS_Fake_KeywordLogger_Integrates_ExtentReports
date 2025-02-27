@@ -127,12 +127,7 @@ So, I want to change the `logInfo` method of the `KeywordLogger` so that the mes
 
 [source,groovy]
 ----
-	public void logInfo(String message, Map<String, String> attributes) {
-		logger.info(message);
-		xmlKeywordLogger.logInfo(this, message, attributes);
-		// println "[fake KeywordLogger#logInfo] ${message}"
-		ReportBuilderKzImpl.getInstance().logInfo(message)  // transfer the message into Extent Reports
-	}
+include::../Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy[lines=398..403]
 ----
 
 Simple, isn't it?
@@ -235,7 +230,7 @@ image:{PagesURLPrefix}/images/Result.png[]
 
 I think that it is the best approach to modify the `com.kms.katalon.core.logging.KeywordLogger` class to transfer the log messages into Extent Reports. My fake `KeywordLogger` implementation proved my idea is possibly good. I am contented with this result.
 
-However, I am aware that my work is just the start of long development efforts to accomplish integrating Extent Reports into Katalon to a satisfactory level. I just worked on a single keyword `WebUI.comment`. There are dozens of more keywords to work on: `WebUI.click`, `WebUI.setText`, `WebUI.openBrowser`, `WebUI.verifyElementPresent`. We would need to amend the `KeywordLogger` class more significantly.
+However, I am aware that my work is just the start of long development efforts to accomplish integrating Extent Reports into Katalon to a satisfactory level. I just worked on a single keyword `WebUI.comment`. There are dozens of more keywords to work on: `WebUI.click`, `WebUI.setText`, `WebUI.openBrowser`, `WebUI.verifyElementPresent`, and so on. We would need to amend the `KeywordLogger` class more significantly.
 
 Who can achieve this task? --- Only Katalon can do it, as the `KeywordLogger` is their own property. Nobody else can.
 

@@ -396,10 +396,10 @@ public class KeywordLogger {
 
 
 	public void logInfo(String message, Map<String, String> attributes) {
-		logger.info(message);
-		xmlKeywordLogger.logInfo(this, message, attributes);
-		println "[fake KeywordLogger#logInfo] ${message}"
-		ReportBuilderKzImpl.getInstance().logInfo(message)
+		logger.info(message);      // into the LogViewer
+		xmlKeywordLogger.logInfo(this, message, attributes); // into the execution0.log file
+		println "[fake KeywordLogger#logInfo] ${message}"    // into the console
+		ReportBuilderKzImpl.getInstance().logInfo(message)   // into the Extent Reports
 	}
 
 
