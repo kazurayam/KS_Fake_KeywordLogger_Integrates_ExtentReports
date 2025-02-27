@@ -86,10 +86,9 @@ I started reading the source codes to find out how a call `WebUI.comment("雨ニ
 
 :src_AbstractKeyword: {SourceURLPrefix}/com.kms.katalon.core/com/kms/katalon/core/keyword/internal/AbstractKeyword.groovy
 
-:src_KeywordLogger: {SourceURLPrefix}/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/logging/KeywordLogger.java
+:src_KeywordLogger: {SourceURLPrefix}/com.kms.katalon.core/com/kms/katalon/core/logging/KeywordLogger.java
 
-
-- A call to `WebUI.comment("雨ニモマケズ")` in a Test Case script effectively calls the `comment()` method of the `com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords` class but you can not find the metthod in the link:{src_WebUiBuiltInKeywords}[source]. The `comment()` method is actually implemented in the link:{src_BuiltInKeywords}[`com.kms.katalon.core.keyword.BuiltInKeywords`].
+- A call to `WebUI.comment("雨ニモマケズ")` in a Test Case script effectively calls the `comment()` method of the `com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords` class but you can not find the method in the link:{src_WebUiBuiltInKeywords}[source]. The `comment()` method is actually implemented in the link:{src_BuiltInKeywords}[`com.kms.katalon.core.keyword.BuiltInKeywords`] which is the parent class.
 
 - The `comment()` method of link:{src_BuiltInKeywords}[`com.kms.katalon.core.keyword.BuiltInKeyword`] calls the `executeKeywordForPlatform()` method of the link:{src_KeywordExecutor}[`com.kms.katalon.core.keyword.internal.KeywordExecutor`].
 

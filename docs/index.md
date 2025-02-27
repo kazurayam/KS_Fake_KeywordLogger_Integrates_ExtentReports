@@ -89,7 +89,7 @@ We can read the source code of `com.kms.katalon.core.**` packages contained in t
 
 I started reading the source codes to find out how a call `WebUI.comment("雨ニモマケズ")` propagates through the call chains and how the message is written into the Console tab and the HTML report file located at `Reports/yyyyMMdd_hhmmss/TS1/yyyyMMdd_hhmmss/execution0.log` file. Eventurally I found it. Let me trace the path that I went through.
 
--   A call to `WebUI.comment("雨ニモマケズ")` in a Test Case script effectively calls the `comment()` method of the `com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords` class but you can not find the metthod in the [source](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core.webui/com/kms/katalon/core/webui/keyword/WebUiBuiltInKeywords.groovy). The `comment()` method is actually implemented in the [`com.kms.katalon.core.keyword.BuiltInKeywords`](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/keyword/BuiltinKeywords.groovy).
+-   A call to `WebUI.comment("雨ニモマケズ")` in a Test Case script effectively calls the `comment()` method of the `com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords` class but you can not find the method in the [source](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core.webui/com/kms/katalon/core/webui/keyword/WebUiBuiltInKeywords.groovy). The `comment()` method is actually implemented in the [`com.kms.katalon.core.keyword.BuiltInKeywords`](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/keyword/BuiltinKeywords.groovy) which is the parent class.
 
 -   The `comment()` method of [`com.kms.katalon.core.keyword.BuiltInKeyword`](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/keyword/BuiltinKeywords.groovy) calls the `executeKeywordForPlatform()` method of the [`com.kms.katalon.core.keyword.internal.KeywordExecutor`](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/keyword/internal/KeywordExecutor.groovy).
 
@@ -115,7 +115,7 @@ I started reading the source codes to find out how a call `WebUI.comment("雨ニ
 
         ...
 
--   The `logInfo(String)` method of [`com.kms.katalon.core.logging.KeywordLogger`](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/logging/KeywordLogger.java) is implemented as follows:
+-   The `logInfo(String)` method of [`com.kms.katalon.core.logging.KeywordLogger`](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/logging/KeywordLogger.java) is implemented as follows:
 
 <!-- -->
 
@@ -124,7 +124,7 @@ I started reading the source codes to find out how a call `WebUI.comment("雨ニ
             xmlKeywordLogger.logInfo(this, message, attributes); // emit message into the execution0.log file
         }
 
-Finally, I got to the heart of the matter! The `logInfo(String)` method of the [`com.kms.katalon.core.logging.KeywordLogger`](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/logging/KeywordLogger.java) object actually prints messages into
+Finally, I got to the heart of the matter! The `logInfo(String)` method of the [`com.kms.katalon.core.logging.KeywordLogger`](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/docs/katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/logging/KeywordLogger.java) object actually prints messages into
 1. the LogViewer in the Katalon Studio GUI, and
 2. the `execution0.log` file under the `<projectDir>/Reports` directory. Katalon Studio will later transform the file into the builtin test execution reports in HTML/CSV/PDF.
 
