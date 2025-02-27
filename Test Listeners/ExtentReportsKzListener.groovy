@@ -1,4 +1,4 @@
-import com.kazurayam.ks.extentreports.ReportBuilderKzImpl
+import com.kazurayam.ks.extentreports.ReportBuilder
 import com.kms.katalon.core.annotation.AfterTestCase
 import com.kms.katalon.core.annotation.AfterTestSuite
 import com.kms.katalon.core.annotation.BeforeTestCase
@@ -12,7 +12,7 @@ class ExtentReportsKzListener {
 
 	@BeforeTestSuite
 	def beforeTestSuite(TestSuiteContext testSuiteContext) {
-		ReportBuilderKzImpl.getInstance().createExtentReports(testSuiteContext, 
+		ReportBuilder.getDefaultInstance().createExtentReports(testSuiteContext, 
 			"document title", "report name")
 		runAsTestSuite = true
 	}
@@ -20,21 +20,21 @@ class ExtentReportsKzListener {
 	@BeforeTestCase
 	def beforeTestCase(TestCaseContext testCaseContext) {
 		if (!runAsTestSuite) {
-			ReportBuilderKzImpl.getInstance().createExtentReports(null,
+			ReportBuilder.getDefaultInstance().createExtentReports(null,
 				"document title", "report name")
 		}
-		ReportBuilderKzImpl.getInstance().createExtentTest(testCaseContext)
+		ReportBuilder.getDefaultInstance().createExtentTest(testCaseContext)
 	}
 
 	@AfterTestCase
 	def afterTestCase(TestCaseContext testCaseContext) throws IOException {
 		//ReportBuilderKzImpl.getInstance().takeScreenshotFailure(testCaseContext)   // may throw com.kms.katalon.core.webui.exception.BrowserNotOpenedException
-		ReportBuilderKzImpl.getInstance().flushExtentReports()
+		ReportBuilder.getDefaultInstance().flushExtentReports()
 	}
 
 	@AfterTestSuite
 	def afterTestSuite() {
-		ReportBuilderKzImpl.getInstance().flushExtentReports()
+		ReportBuilder.getDefaultInstance().flushExtentReports()
 	}
 
 }

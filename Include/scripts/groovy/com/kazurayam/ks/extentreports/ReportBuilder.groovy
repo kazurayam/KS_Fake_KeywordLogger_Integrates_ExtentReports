@@ -23,4 +23,8 @@ abstract class ReportBuilder {
 	abstract Path getReportPath()
 
 	abstract String getReportContent()
+
+	public static ReportBuilder getDefaultInstance() {
+		return ReportBuilderKzImpl.getInstance()
+	}
 }
