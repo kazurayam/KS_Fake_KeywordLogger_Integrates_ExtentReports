@@ -212,7 +212,7 @@ I learned a lot out of the GitHub repository [extent-report-sample](https://gith
 
 ### How to run the demo
 
-Just run the `Test Sutes/TS1`
+Just run the `Test Suites/TS1`
 
 ### Final result
 
@@ -221,3 +221,11 @@ The `<projectDir>/ExtentKz` directory will be newly created where the reports wi
 ![Result](https://kazurayam.github.io/KS_Fake_KeywordLogger_Integrates_ExtentReports/images/Result.png)
 
 ## Conclusion
+
+I think that it is the best approach to modify the `com.kms.katalon.core.logging.KeywordLogger` class to transfer the log messages from into Extent Report. My fake `KeywordLogger` implementation proved my idea good enough. I am contented with this result.
+
+However, I am aware that my work is just a start of long development efforts to accomplish integrating Extent Reports into Katalon to a satisfactory level. I just worked on a single keyword `WebUI.comment`. There are dozens of more keywords to work on: `WebUI.click`, `WebUI.setText`, `WebUI.openBrowser`, `WebUI.verifyElementPresent`. We would need to amend the `KeywordLogger` class more significantly.
+
+Who can achieve this task? --- Only Katalon can do it, as the `KeywordLogger` is their own property. Nobody else can.
+
+So, I would quit this work of "Extent Reports & Katalon integration" here.
