@@ -10,7 +10,7 @@ I want to create a test execution report of a Katalon Studio project using the h
 
 I made a Test Suite `TS1`:
 
-image:{ReposURLPrefix}/images/TS1.png[]
+image:{PagesURLPrefix}/images/TS1.png[]
 
 Also I made 2 Test Cases. The `TC1` is as follows:
 
@@ -197,11 +197,11 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 :path_Listener: Test%20Listeners/ExtentReportsKzListener.groovy
 
-:path_TC1: Test%20Cases/TC1.tc
+:path_TC1: Scripts/TC1/Script1740559328725.groovy
 
-:path_TC2: Test%20Cases/TC2.tc
+:path_TC2: Scripts/TC2/Script1740576074455.groovy
 
-:path_TS1: Test%20Cases/TS1.ts
+:path_TS1: Test%20Suites/TS1.ts
 
 - link:{blobmainPrefix}/{path_KeywordLogger}[{path_KeywordLogger}]
 
@@ -211,9 +211,9 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 - link:{blobmainPrefix}/{path_Listener}[{path_Listener}]
 
-- link:{blobmainPrefix}/{path_TC1}[{path_TC1}]
+- link:{blobmainPrefix}/{path_TC1}[Test Cases/TC1]
 
-- link:{blobmainPrefix}/{path_TC2}[{path_TC2}]
+- link:{blobmainPrefix}/{path_TC2}[Test Cases/TC2]
 
 - link:{blobmainPrefix}/{path_TS1}[{path_TS1}]
 

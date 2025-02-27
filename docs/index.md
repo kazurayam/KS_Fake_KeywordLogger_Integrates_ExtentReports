@@ -8,7 +8,7 @@ I want to create a test execution report of a Katalon Studio project using the [
 
 I made a Test Suite `TS1`:
 
-![TS1]({ReposURLPrefix}/images/TS1.png)
+![TS1](https://kazurayam.github.io/KS_Fake_KeywordLogger_Integrates_ExtentReports/images/TS1.png)
 
 Also I made 2 Test Cases. The `TC1` is as follows:
 
@@ -202,11 +202,11 @@ Then a few jar files will be downloaded from the Maven Central repository in to 
 
 -   [Test%20Listeners/ExtentReportsKzListener.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Listeners/ExtentReportsKzListener.groovy)
 
--   [Test%20Cases/TC1.tc](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Cases/TC1.tc)
+-   [Test Cases/TC1](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Scripts/TC1/Script1740559328725.groovy)
 
--   [Test%20Cases/TC2.tc](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Cases/TC2.tc)
+-   [Test Cases/TC2](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Scripts/TC2/Script1740576074455.groovy)
 
--   [Test%20Cases/TS1.ts](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Cases/TS1.ts)
+-   [Test%20Suites/TS1.ts](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Suites/TS1.ts)
 
 I learned a lot out of the GitHub repository [extent-report-sample](https://github.com/coty/extent-report-sample) by @coty.
 
