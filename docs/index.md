@@ -167,6 +167,8 @@ Now, I can create a fake `com.kms.katalon.core.logging.KeywordLogger` in the `In
 
 Then what will happen? --- My fake `KeywordLogger` will have higher precedence to the real `KeywordLogger` provided by Katalon. Effectify I can change the source code of the `KeywordLogger` as I like.
 
+I created this project and tried this idea. It worked!
+
 ## Description
 
 I created this project and tried my idea: "A fake KeywordLogger integrates Extent Reports into Katalo project". It worked!
@@ -175,7 +177,7 @@ I created this project and tried my idea: "A fake KeywordLogger integrates Exten
 
 I need to import several external dependencies such as Extent Reports, etc into my project. I used the [Katalon Studio’s Gradle Plugin](https://github.com/katalon-studio/katalon-gradle-plugin).
 
-I created a [build.gradle](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/build.gradle) file.
+I created a [build.gradle](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/build.gradle) file.
 
 In the command line, I ran:
 
@@ -220,9 +222,9 @@ The `<projectDir>/ExtentKz` directory will be newly created where the reports wi
 
 ## Conclusion
 
-I think that it is the best approach to modify the `com.kms.katalon.core.logging.KeywordLogger` class to transfer the log messages from into Extent Report. My fake `KeywordLogger` implementation proved my idea good enough. I am contented with this result.
+I think that it is the best approach to modify the `com.kms.katalon.core.logging.KeywordLogger` class to transfer the log messages into Extent Reports. My fake `KeywordLogger` implementation proved my idea is possibly good. I am contented with this result.
 
-However, I am aware that my work is just a start of long development efforts to accomplish integrating Extent Reports into Katalon to a satisfactory level. I just worked on a single keyword `WebUI.comment`. There are dozens of more keywords to work on: `WebUI.click`, `WebUI.setText`, `WebUI.openBrowser`, `WebUI.verifyElementPresent`. We would need to amend the `KeywordLogger` class more significantly.
+However, I am aware that my work is just the start of long development efforts to accomplish integrating Extent Reports into Katalon to a satisfactory level. I just worked on a single keyword `WebUI.comment`. There are dozens of more keywords to work on: `WebUI.click`, `WebUI.setText`, `WebUI.openBrowser`, `WebUI.verifyElementPresent`. We would need to amend the `KeywordLogger` class more significantly.
 
 Who can achieve this task? --- Only Katalon can do it, as the `KeywordLogger` is their own property. Nobody else can.
 
