@@ -194,19 +194,19 @@ Then a few jar files will be downloaded from the Maven Central repository in to 
 
 ### Codes created
 
--   [Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy]({ReposURLPrefx}/blob/main/Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy)
+-   [Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy)
 
--   [Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilder.groovy]({ReposURLPrefx}/blob/main/Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilder.groovy)
+-   [Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilder.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilder.groovy)
 
--   [Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilderKzImpl.groovy]({ReposURLPrefx}/blob/main/Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilderKzImpl.groovy)
+-   [Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilderKzImpl.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilderKzImpl.groovy)
 
--   link:{blobmainPrefx}/"Test Listeners/ExtentReportsKzListener.groovy"\["Test Listeners/ExtentReportsKzListener.groovy"\]
+-   [Test%20Listeners/ExtentReportsKzListener.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Listeners/ExtentReportsKzListener.groovy)
 
--   link:{blobmainPrefx}/"Test Cases/TC1.tc"\["Test Cases/TC1.tc"\]
+-   [Test%20Cases/TC1.tc](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Cases/TC1.tc)
 
--   link:{blobmainPrefx}/"Test Cases/TC2.tc"\["Test Cases/TC2.tc"\]
+-   [Test%20Cases/TC2.tc](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Cases/TC2.tc)
 
--   link:{blobmainPrefx}/"Test Cases/TS1.ts"\["Test Cases/TS1.ts"\]
+-   [Test%20Cases/TS1.ts](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/main/Test%20Cases/TS1.ts)
 
 I learned a lot out of the GitHub repository [extent-report-sample](https://github.com/coty/extent-report-sample) by @coty.
 

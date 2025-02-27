@@ -187,7 +187,7 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 === Codes created
 
-:blobmainPrefix: {ReposURLPrefx}/blob/main
+:blobmainPrefix: {ReposURLPrefix}/blob/main
 
 :path_KeywordLogger: Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy
 
@@ -195,13 +195,13 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 :path_ReportBuilderKzImpl: Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilderKzImpl.groovy
 
-:path_Listener: "Test Listeners/ExtentReportsKzListener.groovy"
+:path_Listener: Test%20Listeners/ExtentReportsKzListener.groovy
 
-:path_TC1: "Test Cases/TC1.tc"
+:path_TC1: Test%20Cases/TC1.tc
 
-:path_TC2: "Test Cases/TC2.tc"
+:path_TC2: Test%20Cases/TC2.tc
 
-:path_TS1: "Test Cases/TS1.ts"
+:path_TS1: Test%20Cases/TS1.ts
 
 - link:{blobmainPrefix}/{path_KeywordLogger}[{path_KeywordLogger}]
 
@@ -209,13 +209,13 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 - link:{blobmainPrefix}/{path_ReportBuilderKzImpl}[{path_ReportBuilderKzImpl}]
 
-- link:{blobmainPrefx}/{path_Listener}[{path_Listener}]
+- link:{blobmainPrefix}/{path_Listener}[{path_Listener}]
 
-- link:{blobmainPrefx}/{path_TC1}[{path_TC1}]
+- link:{blobmainPrefix}/{path_TC1}[{path_TC1}]
 
-- link:{blobmainPrefx}/{path_TC2}[{path_TC2}]
+- link:{blobmainPrefix}/{path_TC2}[{path_TC2}]
 
-- link:{blobmainPrefx}/{path_TS1}[{path_TS1}]
+- link:{blobmainPrefix}/{path_TS1}[{path_TS1}]
 
 I learned a lot out of the GitHub repository link:https://github.com/coty/extent-report-sample[extent-report-sample] by @coty.
 
@@ -230,6 +230,4 @@ The `<projectDir>/ExtentKz` directory will be newly created where the reports wi
 image:{PagesURLPrefix}/images/Result.png[]
 
 == Conclusion
-
-
 
