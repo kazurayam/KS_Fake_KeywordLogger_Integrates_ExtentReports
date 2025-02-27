@@ -134,7 +134,7 @@ So, I want to change the `logInfo` method of the `KeywordLogger` so that the mes
             logger.info(message);      // into the LogViewer
             xmlKeywordLogger.logInfo(this, message, attributes); // into the execution0.log file
             println "[fake KeywordLogger#logInfo] ${message}"    // into the console
-            ReportBuilderKzImpl.getInstance().logInfo(message)   // into the Extent Reports
+            ReportBuilder.getDefaultInstance().logInfo(message)   // into the Extent Reports
         }
 
 Simple, isn’t it?
