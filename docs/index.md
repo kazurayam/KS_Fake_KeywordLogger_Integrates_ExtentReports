@@ -163,9 +163,9 @@ And a line above the `<classpathentry kind="src" output="bin/groovy" path="Inclu
 
 The classes created in the `Include/scripts/groovy` folder is declared first. The precedence depends on the line order. Therefore the classes in the `Include/scripts/groovy` folder will have the higher precedence to the classes in the `com.kms.katalon.core_1.0.0.202501201829.jar`.
 
-Now, what will happen if I create a fake `com.kms.katalon.core.logging.KeywordLogger` in the `Include/scripts/groovy`? --- My fake `KeywordLogger` will effectively overwride the real `KeywordLogger` provided by Katalon.
+Now, I can create a fake `com.kms.katalon.core.logging.KeywordLogger` in the `Include/scripts/groovy`. Katalon Studio will allow me to do it. Then what will happen? --- My fake `KeywordLogger` will have higher precedence to the real `KeywordLogger` provided by Katalon. Effectify I can change the source code of the `KeywordLogger` as I like.
 
-I tried this idea, and found it works!
+I created this project and tried this idea. It worked!
 
 ## Description
 
