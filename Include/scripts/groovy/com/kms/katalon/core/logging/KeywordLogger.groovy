@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.kazurayam.ks.reporting.ReportBuilderKzImpl
 import com.kms.katalon.core.configuration.RunConfiguration;
 import com.kms.katalon.core.constants.CoreConstants;
 import com.kms.katalon.core.constants.StringConstants;
@@ -18,8 +19,6 @@ import com.kms.katalon.core.logging.testops.TestOpsLogHelper;
 import com.kms.katalon.core.main.ScriptEngine;
 import com.kms.katalon.core.util.TestCloudPropertyUtil;
 import com.kms.katalon.util.MaskedTextUtil;
-
-import com.kazurayam.ks.extentreports.ReportBuilder
 
 
 public class KeywordLogger {
@@ -399,7 +398,7 @@ public class KeywordLogger {
 		logger.info(message);      // into the LogViewer
 		xmlKeywordLogger.logInfo(this, message, attributes); // into the execution0.log file
 		println "[fake KeywordLogger#logInfo] ${message}"    // into the console
-		ReportBuilder.getDefaultInstance().logInfo(message)   // into the Extent Reports
+		ReportBuilderKzImpl.getInstance().logInfo(message)   // into the Extent Reports
 	}
 
 
