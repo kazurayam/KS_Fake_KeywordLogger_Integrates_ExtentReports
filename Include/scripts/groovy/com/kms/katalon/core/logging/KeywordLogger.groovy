@@ -1,17 +1,13 @@
 package com.kms.katalon.core.logging;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Stack;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kazurayam.ks.reporting.ReportBuilderKzImpl
+import com.kazurayam.ks.reporting.ReportBuilder;
+import com.kazurayam.ks.reporting.ReportBuilderExtentImpl;
 import com.kms.katalon.core.configuration.RunConfiguration;
 import com.kms.katalon.core.constants.CoreConstants;
 import com.kms.katalon.core.constants.StringConstants;
@@ -42,6 +38,8 @@ public class KeywordLogger {
 	private final XmlKeywordLogger xmlKeywordLogger;
 
 	private boolean shouldLogTestSteps;
+
+	private final Map<String, ReportBuilder> reportBuilders = new ConcurrentHashMap<>();
 
 	public static KeywordLogger getInstance(Class<?> clazz) {
 		if (clazz == null) {
@@ -398,7 +396,7 @@ public class KeywordLogger {
 		logger.info(message);      // into the LogViewer
 		xmlKeywordLogger.logInfo(this, message, attributes); // into the execution0.log file
 		println "[fake KeywordLogger#logInfo] ${message}"    // into the console
-		ReportBuilderKzImpl.getInstance().logInfo(message)   // into the Extent Reports
+		ReportBuilderExtentImpl.getInstance().logInfo(message)   // into the Extent Reports
 	}
 
 
@@ -448,16 +446,16 @@ public class KeywordLogger {
 
 	private void log(LogLevel level, String message) {
 		switch (level) {
-			case WARNING:
+			case LogLevel.WARNING:
 				logger.warn(message);
 				break;
-			case NOT_RUN:
+			case LogLevel.NOT_RUN:
 				logger.warn("SKIP {}", message);
 				break;
-			case FAILED:
-			case ERROR:
-			case ABORTED:
-			case INCOMPLETE:
+			case LogLevel.FAILED:
+			case LogLevel.ERROR:
+			case LogLevel.ABORTED:
+			case LogLevel.INCOMPLETE:
 				logger.error("{} {}", FAILED, message);
 				break;
 			default:
