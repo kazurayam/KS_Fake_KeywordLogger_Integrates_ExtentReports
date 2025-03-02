@@ -142,8 +142,6 @@ Katalon Studio is not an open-source software. It is a proprietary software prod
 
 After a few weeks of studies, I @kazurayam have found out a hack. Let me tell you about it here.
 
-=== .classpath file
-
 Every Katalon Studio project has a file named `.classpath` where all libraries available to the project are listed. It starts with the following lines:
 
 image::{PagesURLPrefix}/images/classpath.png[]
@@ -184,13 +182,13 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 === Codes created
 
-:blobmainPrefix: {ReposURLPrefix}/blob/main
+:blobmainPrefix: {ReposURLPrefix}/blob/develop
 
 :path_KeywordLogger: Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy
 
-:path_ReportBuilder: Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilder.groovy
+:path_ReportBuilder: Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilder.groovy
 
-:path_ReportBuilderKzImpl: Include/scripts/groovy/com/kazurayam/ks/extentreports/ReportBuilderKzImpl.groovy
+:path_ReportBuilderKzImpl: Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilderKzImpl.groovy
 
 :path_Listener: Test%20Listeners/ExtentReportsKzListener.groovy
 
