@@ -1,4 +1,4 @@
-package com.kazurayam.ks.extentreports
+package com.kazurayam.ks.reporting
 
 import java.nio.file.Files
 import java.nio.file.Path
@@ -19,6 +19,7 @@ import com.aventstack.extentreports.MediaEntityBuilder
 import com.aventstack.extentreports.Status
 import com.aventstack.extentreports.reporter.ExtentSparkReporter
 import com.aventstack.extentreports.reporter.configuration.Theme
+import com.kazurayam.ks.reporting.ReportBuilder
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.context.TestCaseContext
 import com.kms.katalon.core.context.TestSuiteContext
@@ -29,7 +30,7 @@ import com.kms.katalon.core.webui.driver.DriverFactory
  *
  * @author kazurayam
  */
-protected class ReportBuilderKzImpl extends ReportBuilder {
+protected class ReportBuilderKzImpl implements ReportBuilder {
 
 	// The "Bill Pugh Singleton" pattern is applied
 	// See https://www.baeldung.com/java-bill-pugh-singleton-implementation
@@ -54,7 +55,6 @@ protected class ReportBuilderKzImpl extends ReportBuilder {
 	/**
 	 * @param testSuiteContext not used
 	 */
-	@Override
 	void createExtentReports(TestSuiteContext testSuiteContext,
 			String documentTitle, String reportTitle,
 			String projectDir = System.getProperty("user.dir")) {
@@ -84,7 +84,6 @@ protected class ReportBuilderKzImpl extends ReportBuilder {
 		extentReports.setSystemInfo("Host Name: ", RunConfiguration.getHostName())
 	}
 
-	@Override
 	void createExtentTest(TestCaseContext testCaseContext) {
 		String browser = DriverFactory.getExecutedBrowser().getName()
 		String execID = RunConfiguration.getExecutionSourceName()
@@ -98,7 +97,7 @@ protected class ReportBuilderKzImpl extends ReportBuilder {
 	}
 
 	@Override
-	void flushExtentReports() {
+	void flushReport() {
 		extentReports.flush()
 	}
 
