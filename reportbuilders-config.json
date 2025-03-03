@@ -1,0 +1,6 @@
+{
+	"ReportBuilder_classes" : [
+		"com.kazurayam.ks.reporting.ReportBuilderSkeletonImpl",
+		"com.kazurayam.ks.reporting.ReportBuilderExtentImpl"
+	]
+}

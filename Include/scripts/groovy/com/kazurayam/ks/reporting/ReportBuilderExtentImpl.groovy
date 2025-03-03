@@ -30,7 +30,7 @@ import com.kms.katalon.core.webui.driver.DriverFactory
  *
  * @author kazurayam
  */
-protected class ReportBuilderExtentImpl implements ReportBuilder {
+public class ReportBuilderExtentImpl implements ReportBuilder {
 
 	// The "Bill Pugh Singleton" pattern is applied
 	// See https://www.baeldung.com/java-bill-pugh-singleton-implementation
