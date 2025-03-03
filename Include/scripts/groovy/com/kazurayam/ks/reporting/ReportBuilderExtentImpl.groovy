@@ -30,27 +30,27 @@ import com.kms.katalon.core.webui.driver.DriverFactory
  *
  * @author kazurayam
  */
-protected class ReportBuilderKzImpl implements ReportBuilder {
+protected class ReportBuilderExtentImpl implements ReportBuilder {
 
 	// The "Bill Pugh Singleton" pattern is applied
 	// See https://www.baeldung.com/java-bill-pugh-singleton-implementation
 	private class SingletonHolder {
-		private static final ReportBuilderKzImpl INSTANCE = new ReportBuilderKzImpl()
+		private static final ReportBuilderExtentImpl INSTANCE = new ReportBuilderExtentImpl()
 	}
 
-	public static ReportBuilderKzImpl getInstance() {
+	public static ReportBuilderExtentImpl getInstance() {
 		return SingletonHolder.INSTANCE
 	}
 
-	private ReportBuilderKzImpl() {}
+	private ReportBuilderExtentImpl() {}
 
 	private ExtentSparkReporter sparkReporter
 	private ExtentReports extentReports
 	private ExtentTest extentTest
-	private String executionSourceName = "TestCase"
-	private String reportName
+
 	private Path projectPath
 	private Path reportPath
+	private static final String OUTPUT_DIR_NAME = "Extent"
 
 	/**
 	 * @param testSuiteContext not used
@@ -58,9 +58,9 @@ protected class ReportBuilderKzImpl implements ReportBuilder {
 	void createExtentReports(TestSuiteContext testSuiteContext,
 			String documentTitle, String reportTitle,
 			String projectDir = System.getProperty("user.dir")) {
-		reportName = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"))
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"))
 		projectPath = Paths.get(projectDir)
-		Path folderPath = projectPath.resolve("ExtentKz").resolve(reportName)
+		Path folderPath = projectPath.resolve(OUTPUT_DIR_NAME).resolve(timestamp)
 		if (!Files.exists(folderPath)) {
 			try {
 				Files.createDirectories(folderPath);
