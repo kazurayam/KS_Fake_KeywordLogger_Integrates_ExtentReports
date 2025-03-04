@@ -197,7 +197,7 @@ Then a few jar files will be downloaded from the Maven Central repository in to 
 
 -   [Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilderExtentImpl.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilderExtentImpl.groovy)
 
--   [Include/scripts/groovy/com/kazurayam/ks/reporting/CustomReportsLoader.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Include/scripts/groovy/com/kazurayam/ks/reporting/CustomReportsLoader.groovy)
+-   [Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuildersLoader.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuildersLoader.groovy)
 
 -   [reportbuilders-config.json](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/reportbuilders-config.json)
 

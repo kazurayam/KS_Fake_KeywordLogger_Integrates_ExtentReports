@@ -190,7 +190,7 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 :path_ReportBuilderExtentImpl: Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilderExtentImpl.groovy
 
-:path_ReportBuildersLoader: Include/scripts/groovy/com/kazurayam/ks/reporting/CustomReportsLoader.groovy
+:path_ReportBuildersLoader: Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuildersLoader.groovy
 
 :path_reportbuilders-config: reportbuilders-config.json
 
