@@ -134,6 +134,7 @@ So, I want to change the `logInfo` method of the `KeywordLogger` so that the mes
             logger.info(message);                                // write into the LogViewer
             xmlKeywordLogger.logInfo(this, message, attributes); // write into the execution0.log file
             /*
+             * kazurayam inserted the following
 
 Simple, isn’t it?
 
@@ -195,6 +196,8 @@ Then a few jar files will be downloaded from the Maven Central repository in to 
 -   [Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilder.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilder.groovy)
 
 -   [Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilderExtentImpl.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilderExtentImpl.groovy)
+
+-   [Include/scripts/groovy/com/kazurayam/ks/reporting/CustomReportsLoader.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Include/scripts/groovy/com/kazurayam/ks/reporting/CustomReportsLoader.groovy)
 
 -   [reportbuilders-config.json](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/reportbuilders-config.json)
 

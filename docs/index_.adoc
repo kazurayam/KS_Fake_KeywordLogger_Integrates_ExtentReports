@@ -208,6 +208,8 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 - link:{blobmainPrefix}/{path_ReportBuilderExtentImpl}[{path_ReportBuilderExtentImpl}]
 
+- link:{blobmainPrefix}/{path_ReportBuildersLoader}[{path_ReportBuildersLoader}]
+
 - link:{blobmainPrefix}/{path_reportbuilders-config}[reportbuilders-config.json]
 
 - link:{blobmainPrefix}/{path_Listener}[{path_Listener}]

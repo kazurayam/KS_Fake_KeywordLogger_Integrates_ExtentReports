@@ -39,7 +39,6 @@ public class KeywordLogger {
 
 	private boolean shouldLogTestSteps;
 
-
 	/**
 	 * kazurayam inserted the following variable
 	 */
