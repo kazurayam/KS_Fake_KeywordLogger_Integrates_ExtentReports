@@ -188,9 +188,13 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 :path_ReportBuilder: Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilder.groovy
 
-:path_ReportBuilderKzImpl: Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilderKzImpl.groovy
+:path_ReportBuilderExtentImpl: Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuilderExtentImpl.groovy
 
-:path_Listener: Test%20Listeners/ExtentReportsKzListener.groovy
+:path_ReportBuildersLoader: Include/scripts/groovy/com/kazurayam/ks/reporting/CustomReportsLoader.groovy
+
+:path_reportbuilders-config: reportbuilders-config.json
+
+:path_Listener: Test%20Listeners/CustomReportsListener.groovy
 
 :path_TC1: Scripts/TC1/Script1740559328725.groovy
 
@@ -202,7 +206,9 @@ image::{PagesURLPrefix}/images/Drivers.png[]
 
 - link:{blobmainPrefix}/{path_ReportBuilder}[{path_ReportBuilder}]
 
-- link:{blobmainPrefix}/{path_ReportBuilderKzImpl}[{path_ReportBuilderKzImpl}]
+- link:{blobmainPrefix}/{path_ReportBuilderExtentImpl}[{path_ReportBuilderExtentImpl}]
+
+- link:{blobmainPrefix}/{path_reportbuilders-config}[reportbuilders-config.json]
 
 - link:{blobmainPrefix}/{path_Listener}[{path_Listener}]
 
