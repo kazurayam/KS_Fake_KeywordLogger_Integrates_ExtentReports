@@ -353,6 +353,12 @@ public class KeywordLogger {
 			attributes.putAll(TestOpsLogHelper.getTestOpsAttributes(LogLevel.PASSED, stackTraces));
 		}
 		xmlKeywordLogger.logPassed(message, attributes);
+		// kazurayam inserted the following
+		for (Map.Entry<String, ReportBuilder> pair: reportBuilders.entrySet()) {
+			String className = pair.getKey()
+			ReportBuilder rb = pair.getValue()
+			rb.getInstance().logPassed(message)
+		}
 	}
 
 	public void logPassed(String message, Map<String, String> attributes, boolean isKeyword) {
@@ -500,6 +506,12 @@ public class KeywordLogger {
 	public void logDebug(String message) {
 		logger.debug(message);
 		xmlKeywordLogger.logDebug(this, message, null);
+		// kazurayam inserted the following
+		for (Map.Entry<String, ReportBuilder> pair: reportBuilders.entrySet()) {
+			String className = pair.getKey()
+			ReportBuilder rb = pair.getValue()
+			rb.getInstance().logDebug(message)
+		}
 	}
 
 	public boolean isInfoEnabled() {

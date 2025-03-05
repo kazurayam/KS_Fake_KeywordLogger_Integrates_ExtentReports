@@ -3,23 +3,14 @@ package com.kazurayam.ks.reporting
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.nio.file.StandardCopyOption;
-import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-import org.openqa.selenium.OutputType
-import org.openqa.selenium.TakesScreenshot
-import org.openqa.selenium.WebDriver
-import org.testng.ITestResult;
-
 import com.aventstack.extentreports.ExtentReports
 import com.aventstack.extentreports.ExtentTest
-import com.aventstack.extentreports.MediaEntityBuilder
 import com.aventstack.extentreports.Status
 import com.aventstack.extentreports.reporter.ExtentSparkReporter
 import com.aventstack.extentreports.reporter.configuration.Theme
-import com.kazurayam.ks.reporting.ReportBuilder
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.context.TestCaseContext
 import com.kms.katalon.core.context.TestSuiteContext
@@ -98,12 +89,31 @@ public class ReportBuilderExtentImpl implements ReportBuilder {
 
 	@Override
 	void flushReport() {
-		extentReports.flush()
+		if (extentReports != null) {
+			extentReports.flush()
+		}
+	}
+	
+	@Override
+	void logDebug(String message) {
+		if (extentTest != null) {
+			// we ignore messages of Debug level
+			//extentTest.log(Status.INFO, message)
+		}
 	}
 
 	@Override
 	void logInfo(String message) {
-		extentTest.log(Status.PASS, message)
+		if (extentTest != null) {
+			extentTest.log(Status.INFO, message)
+		}
+	}
+
+	@Override
+	void logPassed(String message) {
+		if (extentTest != null) {
+			extentTest.log(Status.PASS, message)
+		}
 	}
 
 	@Override
