@@ -23,7 +23,7 @@ public class ReportBuilderSkeletonImpl implements ReportBuilder {
 	void logDebug(String message) {
 		println "DEBUG " + message
 	}
-	
+
 	@Override
 	void logInfo(String message) {
 		println "INFO " + message
@@ -33,7 +33,7 @@ public class ReportBuilderSkeletonImpl implements ReportBuilder {
 	void logPassed(String message) {
 		println "PASS " + message
 	}
-	
+
 	@Override
 	Path getReportPath() {
 		return null
