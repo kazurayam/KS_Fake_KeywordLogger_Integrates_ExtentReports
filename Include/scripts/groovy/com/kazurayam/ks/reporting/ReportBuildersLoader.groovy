@@ -12,11 +12,13 @@ import groovy.json.JsonSlurper
 
 public class ReportBuildersLoader {
 
+	public static final String CONFIG_FILE_NAME = "reportbuilders.config.json"
+	
 	private ReportBuildersLoader() {}
 
 	public static final Map<String, ReportBuilder> load() {
 		Map<String, ReportBuilder> reportBuilders = new ConcurrentHashMap<>()
-		Path configPath = Paths.get(RunConfiguration.getProjectDir()).resolve("reportbuilders-config.json")
+		Path configPath = Paths.get(RunConfiguration.getProjectDir()).resolve(CONFIG_FILE_NAME)
 		if (Files.exists(configPath)) {
 			def json = new JsonSlurper().parse(configPath)
 			json["ReportBuilder_classes"].each { className ->
