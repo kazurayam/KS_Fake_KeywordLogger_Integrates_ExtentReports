@@ -93,12 +93,19 @@ public class ReportBuilderExtentImpl implements ReportBuilder {
 			extentReports.flush()
 		}
 	}
-	
+
 	@Override
 	void logDebug(String message) {
 		if (extentTest != null) {
 			// we ignore messages of Debug level
 			//extentTest.log(Status.INFO, message)
+		}
+	}
+
+	@Override
+	void logFailed(String message) {
+		if (extentTest !=null) {
+			extentTest.log(Status.FAIL, message)  // I can make it better
 		}
 	}
 
@@ -113,6 +120,13 @@ public class ReportBuilderExtentImpl implements ReportBuilder {
 	void logPassed(String message) {
 		if (extentTest != null) {
 			extentTest.log(Status.PASS, message)
+		}
+	}
+
+	@Override
+	void logWarning(String message) {
+		if (extentTest !=null) {
+			extentTest.log(Status.WARNING, message)  // I can make it better
 		}
 	}
 

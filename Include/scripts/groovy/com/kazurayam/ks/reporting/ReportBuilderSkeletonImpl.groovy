@@ -21,18 +21,29 @@ public class ReportBuilderSkeletonImpl implements ReportBuilder {
 
 	@Override
 	void logDebug(String message) {
-		println "DEBUG " + message
+		//println "[DEBUG] " + message
 	}
 
 	@Override
 	void logInfo(String message) {
-		println "INFO " + message
+		println "[INFO] " + message
 	}
 
 	@Override
 	void logPassed(String message) {
-		println "PASS " + message
+		println "[PASS] " + message
 	}
+
+	@Override
+	void logWarning(String message) {
+		println "[WARN] " + message
+	}
+
+	@Override
+	void logFailed(String message) {
+		println "[FAIL] " + message
+	}
+
 
 	@Override
 	Path getReportPath() {

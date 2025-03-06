@@ -7,10 +7,14 @@ interface ReportBuilder {
 	abstract void flushReport()
 
 	abstract void logDebug(String message)
-	
+
+	abstract void logFailed(String message)
+
 	abstract void logInfo(String message)
-	
+
 	abstract void logPassed(String message)
+
+	abstract void logWarning(String message)
 
 	abstract Path getReportPath()
 

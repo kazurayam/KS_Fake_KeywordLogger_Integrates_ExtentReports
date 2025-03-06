@@ -307,6 +307,11 @@ public class KeywordLogger {
 		}
 		TestOpsLogHelper.handleFailedLogEntry(attributes);
 		xmlKeywordLogger.logFailed(message, attributes);
+		for (Map.Entry<String, ReportBuilder> pair: reportBuilders.entrySet()) {
+			String className = pair.getKey()
+			ReportBuilder rb = pair.getValue()
+			rb.getInstance().logFailed(message)
+		}
 	}
 
 
@@ -335,6 +340,11 @@ public class KeywordLogger {
 	public void logWarning(String message, Map<String, String> attributes) {
 		logger.warn(message);
 		xmlKeywordLogger.logWarning(message, attributes);
+		for (Map.Entry<String, ReportBuilder> pair: reportBuilders.entrySet()) {
+			String className = pair.getKey()
+			ReportBuilder rb = pair.getValue()
+			rb.getInstance().logWarning(message)
+		}
 	}
 
 
