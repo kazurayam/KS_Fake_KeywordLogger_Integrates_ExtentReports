@@ -19,14 +19,14 @@ Also I made 2 Test Cases. The `TC1` is as follows:
 
 [source,groovy]
 ----
-include::../Scripts/TC1/Script1740559328725.groovy[]
+include::../Scripts/main/TC1/Script1740559328725.groovy[]
 ----
 
 And `TC2` is as follows:
 
 [source,groovy]
 ----
-include::../Scripts/TC2/Script1740576074455.groovy[]
+include::../Scripts/main/TC2/Script1740576074455.groovy[]
 ----
 
 When I exected the `TS1`, Katalon Studio generated an HTML report like this:
@@ -127,7 +127,7 @@ So, I want to change the `logInfo` method of the `KeywordLogger` so that the mes
 
 [source,groovy]
 ----
-include::../Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy[lines=398..403]
+include::../Include/scripts/groovy/com/kms/katalon/core/logging/KeywordLogger.groovy[lines=416..429]
 ----
 
 Simple, isn't it?
