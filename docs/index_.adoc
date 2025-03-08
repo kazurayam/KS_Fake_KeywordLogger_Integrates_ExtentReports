@@ -90,11 +90,11 @@ I started reading the source codes to find out how a call `WebUI.comment("雨ニ
 
 :src_KeywordLogger: {SourceURLPrefix}/com.kms.katalon.core/com/kms/katalon/core/logging/KeywordLogger.java
 
-- A call to `WebUI.comment("雨ニモマケズ")` in a Test Case script effectively calls the `comment()` method of the `com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords` class but you can not find the method in the link:{src_WebUiBuiltInKeywords}[source]. The `comment()` method is actually implemented in the link:{src_BuiltInKeywords}[`com.kms.katalon.core.keyword.BuiltInKeywords`] which is the parent class.
+- A call to `WebUI.comment("雨ニモマケズ")` in a Test Case script calls the `comment()` method of the `com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords` class but you can not find the method in the link:{src_WebUiBuiltInKeywords}[source]. The `comment()` method is actually implemented in the link:{src_BuiltInKeywords}[`com.kms.katalon.core.keyword.BuiltInKeywords`] which is the parent class.
 
 - The `comment()` method of link:{src_BuiltInKeywords}[`com.kms.katalon.core.keyword.BuiltInKeyword`] calls the `executeKeywordForPlatform()` method of the link:{src_KeywordExecutor}[`com.kms.katalon.core.keyword.internal.KeywordExecutor`].
 
-- A call to `KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.PLATFORM_BUILT_IN, "comment", message)` effectively calls `comment(String message)` of the {src_CommentKeyword}[`com.kms.katalon.core.keyword.builtin.CommentKeyword`]. The method is implemented as follows:
+- A call to `KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.PLATFORM_BUILT_IN, "comment", message)` calls `comment(String message)` of the {src_CommentKeyword}[`com.kms.katalon.core.keyword.builtin.CommentKeyword`]. The method is implemented as follows:
 [source, groovy]
 ----
 include::./katalon-studio-source/10.0.0/source/com.kms.katalon.core/com/kms/katalon/core/keyword/builtin/CommentKeyword.groovy[lines=27..30]
@@ -152,7 +152,7 @@ Now, I can create a fake `com.kms.katalon.core.logging.KeywordLogger` in the `In
 
 image::{PagesURLPrefix}/images/Fake_KeywordLogger.png[]
 
-Then what will happen? --- My fake `KeywordLogger` will have higher precedence to the real `KeywordLogger` provided by Katalon. Effectify I can change the source code of the `KeywordLogger` as I like.
+Then what will happen? --- My fake `KeywordLogger` will have higher precedence to the real `KeywordLogger` provided by Katalon. Effectively I can change the source code of the `KeywordLogger` as I like.
 
 I created this project and tried this idea. It worked!
 
@@ -254,7 +254,7 @@ The "Bill Pugh Singleton" pattern is recommended. See https://www.baeldung.com/j
 
 The singleton ReportBuilder-implementing class will be instanciated only once when its "getInstance()" method is called by any portion.
 
-The "CustomReportsListener" gives you chances to transfer events of start/end of test scripts into the ReportBuilders. 
+The "CustomReportsListener" gives you chances to transfer events of start/end of test scripts into the ReportBuilders.
 
 
 

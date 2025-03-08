@@ -43,6 +43,11 @@ public class ReportBuilderSkeletonImpl implements ReportBuilder {
 	void logFailed(String message) {
 		println "[FAIL] " + message
 	}
+	
+	@Override
+	void logFailed(String message, Throwable t) {
+		println "[FAIL] " + message
+	}
 
 
 	@Override

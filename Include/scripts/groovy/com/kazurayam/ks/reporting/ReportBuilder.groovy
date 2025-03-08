@@ -9,6 +9,8 @@ interface ReportBuilder {
 	abstract void logDebug(String message)
 
 	abstract void logFailed(String message)
+	
+	abstract void logFailed(String message, Throwable t)
 
 	abstract void logInfo(String message)
 

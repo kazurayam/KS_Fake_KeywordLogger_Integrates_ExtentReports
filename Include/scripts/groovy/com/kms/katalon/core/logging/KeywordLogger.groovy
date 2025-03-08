@@ -296,6 +296,12 @@ public class KeywordLogger {
 		Map<String, String> exceptionAttributes = xmlKeywordLogger.getAttributesFrom(throwable);
 		attributes.putAll(exceptionAttributes);
 		logFailed(message, attributes);
+		//
+		for (Map.Entry<String, ReportBuilder> pair: reportBuilders.entrySet()) {
+			String className = pair.getKey()
+			ReportBuilder rb = pair.getValue()
+			rb.getInstance().logFailed(message, throwable)
+		}
 	}
 
 	public void logFailed(String message, Map<String, String> attributes) {
@@ -307,11 +313,6 @@ public class KeywordLogger {
 		}
 		TestOpsLogHelper.handleFailedLogEntry(attributes);
 		xmlKeywordLogger.logFailed(message, attributes);
-		for (Map.Entry<String, ReportBuilder> pair: reportBuilders.entrySet()) {
-			String className = pair.getKey()
-			ReportBuilder rb = pair.getValue()
-			rb.getInstance().logFailed(message)
-		}
 	}
 
 

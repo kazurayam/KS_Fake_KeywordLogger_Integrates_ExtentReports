@@ -104,8 +104,15 @@ public class ReportBuilderExtentImpl implements ReportBuilder {
 
 	@Override
 	void logFailed(String message) {
-		if (extentTest !=null) {
-			extentTest.log(Status.FAIL, message)  // I can make it better
+		if (extentTest != null) {
+			extentTest.fail(message)
+		}
+	}
+
+	@Override
+	void logFailed(String message, Throwable t) {
+		if (extentTest != null) {
+			extentTest.fail(t)
 		}
 	}
 
