@@ -208,13 +208,13 @@ Then a few jar files will be downloaded from the Maven Central repository in to 
 
 -   [Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuildersLoader.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Include/scripts/groovy/com/kazurayam/ks/reporting/ReportBuildersLoader.groovy)
 
--   [reportbuilders-config.json](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/reportbuilders-config.json)
+-   [reportbuilders.config.json](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/reportbuilders.config.json)
 
 -   [Test%20Listeners/CustomReportsListener.groovy](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Test%20Listeners/CustomReportsListener.groovy)
 
--   [Test Cases/TC1](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Scripts/TC1/Script1740559328725.groovy)
+-   [Test Cases/main/TC1](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Scripts/main/TC1/Script1740559328725.groovy)
 
--   [Test Cases/TC2](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Scripts/TC2/Script1740576074455.groovy)
+-   [Test Cases/main/TC2](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Scripts/main/TC2/Script1740576074455.groovy)
 
 -   [Test%20Suites/TS1.ts](https://github.com/kazurayam/KS_Fake_KeywordLogger_Integrates_ExtentReports/blob/develop/Test%20Suites/TS1.ts)
 
@@ -237,19 +237,3 @@ I think that it is the best approach to modify the `com.kms.katalon.core.logging
 However, I am aware that my work is just the start of long development efforts to accomplish integrating Extent Reports into Katalon to a satisfactory level. I just worked on a single keyword `WebUI.comment`. There are dozens of more keywords to work on: `WebUI.click`, `WebUI.setText`, `WebUI.openBrowser`, `WebUI.verifyElementPresent`, and so on. We would need to amend the `KeywordLogger` class more significantly.
 
 Who can achieve this task? --- Only Katalon can do it, as the `KeywordLogger` is their own property. Nobody else can.
-
-So, I would quit this work of "Extent Reports & Katalon integration" here.
-
-## Appendix
-
-### The idea
-
-The intenface `com.kazurayam.ks.reporting.ReportBuilder` declares method signatures you can implement in your own class. Your class that implements that inteface can be injected into the KeywordLogger object.
-
-You custom class must be a singleton. It must implement the "getInstance()" method, the method must be static, must be public. The method should return the singleton instance of that class.
-
-The "Bill Pugh Singleton" pattern is recommended. See <https://www.baeldung.com/java-bill-pugh-singleton-implementation>
-
-The singleton ReportBuilder-implementing class will be instanciated only once when its "getInstance()" method is called by any portion.
-
-The "CustomReportsListener" gives you chances to transfer events of start/end of test scripts into the ReportBuilders.
