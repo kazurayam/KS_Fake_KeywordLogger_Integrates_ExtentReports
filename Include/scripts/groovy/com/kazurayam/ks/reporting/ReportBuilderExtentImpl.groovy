@@ -28,112 +28,127 @@ public class ReportBuilderExtentImpl implements ReportBuilder {
 	private class SingletonHolder {
 		private static final ReportBuilderExtentImpl INSTANCE = new ReportBuilderExtentImpl()
 	}
-
 	public static ReportBuilderExtentImpl getInstance() {
 		return SingletonHolder.INSTANCE
 	}
-
 	private ReportBuilderExtentImpl() {}
 
-	private ExtentSparkReporter sparkReporter
-	private ExtentReports extentReports
-	private ExtentTest extentTest
-
+	//
+	private static final String OUTPUT_DIR_NAME = "Extent"
 	private Path projectPath
 	private Path reportPath
-	private static final String OUTPUT_DIR_NAME = "Extent"
+
+	private ExtentReports extent
+	private ExtentTest logger
 
 	/**
-	 * @param testSuiteContext not used
+	 * @param testSuiteContext not really used
 	 */
 	void createExtentReports(TestSuiteContext testSuiteContext,
-			String documentTitle, String reportTitle,
-			String projectDir = System.getProperty("user.dir")) {
+			String documentTitle,
+			String reportTitle,
+			Path projectPath = Paths.get(RunConfiguration.getProjectDir())) {
+		//assert testSuiteContext != null
+		assert documentTitle != null
+		assert reportTitle != null
+		assert projectPath != null
+		assert Files.exists(projectPath)
+		//
 		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"))
-		projectPath = Paths.get(projectDir)
 		Path folderPath = projectPath.resolve(OUTPUT_DIR_NAME).resolve(timestamp)
-		if (!Files.exists(folderPath)) {
-			try {
-				Files.createDirectories(folderPath);
-			} catch (IOException e) {
-				System.err.println("Failed to create the folder: " + e.getMessage());
-			}
-		}
+		ensureDirectory(folderPath)
 		reportPath = folderPath.resolve(reportTitle.replaceAll(" ", "_") + ".html")
-		sparkReporter = new ExtentSparkReporter(reportPath.toString())
+		//
+		ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportPath.toString())
 		sparkReporter.config().setDocumentTitle(documentTitle)
 		sparkReporter.config().setReportName(reportTitle)
 		sparkReporter.config().setTheme(Theme.STANDARD)
 		sparkReporter.config().setTimelineEnabled(true)
 		sparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'")
-
-		extentReports = new ExtentReports();
-		extentReports.attachReporter(sparkReporter);
-		extentReports.setSystemInfo("Operating System: ", System.getProperty("os.name"))
-		extentReports.setSystemInfo("Java Version: ", System.getProperty("java.version"))
-		extentReports.setSystemInfo("Host Address: ", RunConfiguration.getHostAddress())
-		extentReports.setSystemInfo("Host Name: ", RunConfiguration.getHostName())
+		//
+		extent = new ExtentReports()
+		extent.attachReporter(sparkReporter)
+		extent.setSystemInfo("Operating System: ", System.getProperty("os.name"))
+		extent.setSystemInfo("Java Version: ", System.getProperty("java.version"))
+		extent.setSystemInfo("Host Address: ", RunConfiguration.getHostAddress())
+		extent.setSystemInfo("Host Name: ", RunConfiguration.getHostName())
 	}
 
-	void createExtentTest(TestCaseContext testCaseContext) {
+	private void ensureDirectory(Path directory) throws IOException {
+		if (!Files.exists(directory)) {
+			Files.createDirectories(directory);
+		}
+	}
+
+	void createExtentTest(TestCaseContext tcContext) {
+		assert tcContext != null
+		//
 		String browser = DriverFactory.getExecutedBrowser().getName()
 		String execID = RunConfiguration.getExecutionSourceName()
-		String testCaseName = testCaseContext.getTestCaseId()
-				.substring(testCaseContext.getTestCaseId().lastIndexOf('/') + 1)
-		extentTest = extentReports.createTest(execID + " : " + testCaseName, "Test Execution: " + testCaseContext.getTestCaseId())
-		extentTest.assignAuthor("HOST: " + RunConfiguration.getHostName())
-		extentTest.assignCategory("Browser: " + browser)
-		extentTest.assignCategory("PROFILE: " + RunConfiguration.getExecutionProfile().toUpperCase())
-		extentTest.assignCategory("GROUP: " + TestCaseFactory.findTestCase(testCaseContext.getTestCaseId()).getTag().toUpperCase())
+		String testCaseName = tcContext.getTestCaseId()
+				.substring(tcContext.getTestCaseId().lastIndexOf('/') + 1)
+		logger = extent.createTest(execID + " : " + testCaseName, "Test Execution: " + tcContext.getTestCaseId())
+		logger.assignAuthor("Host: " + RunConfiguration.getHostName())
+		logger.assignCategory("Browser: " + browser)
+		logger.assignCategory("Profile: " + RunConfiguration.getExecutionProfile().toUpperCase())
+		//extentTest.assignCategory("GROUP: " + TestCaseFactory.findTestCase(testCaseContext.getTestCaseId()).getTag().toUpperCase())
 	}
 
 	@Override
 	void flushReport() {
-		if (extentReports != null) {
-			extentReports.flush()
+		if (extent != null) {
+			extent.flush()
 		}
 	}
 
 	@Override
 	void logDebug(String message) {
-		if (extentTest != null) {
+		if (logger != null) {
 			// we ignore messages of Debug level
-			//extentTest.log(Status.INFO, message)
+			//logger.log(Status.INFO, message)
 		}
 	}
 
 	@Override
 	void logFailed(String message) {
-		if (extentTest != null) {
-			extentTest.fail(message)
+		if (logger != null) {
+			logger.fail(message)
 		}
 	}
 
 	@Override
 	void logFailed(String message, Throwable t) {
-		if (extentTest != null) {
-			extentTest.fail(t)
+		if (logger != null) {
+			logger.fail(t)
+		}
+	}
+
+	@Override
+	void addImageFromPath(String path) {
+		println "[ReportBuilderExtentImpl#addImageFromPath] path=${path}"
+		if (logger != null) {
+			logger.addScreenCaptureFromPath(path)
 		}
 	}
 
 	@Override
 	void logInfo(String message) {
-		if (extentTest != null) {
-			extentTest.log(Status.INFO, message)
+		if (logger != null) {
+			logger.log(Status.INFO, message)
 		}
 	}
 
 	@Override
 	void logPassed(String message) {
-		if (extentTest != null) {
-			extentTest.log(Status.PASS, message)
+		if (logger != null) {
+			logger.log(Status.PASS, message)
 		}
 	}
 
 	@Override
 	void logWarning(String message) {
-		if (extentTest !=null) {
-			extentTest.log(Status.WARNING, message)  // I can make it better
+		if (logger != null) {
+			logger.log(Status.WARNING, message)  // I can make it better
 		}
 	}
 

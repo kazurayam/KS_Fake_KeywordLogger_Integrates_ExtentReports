@@ -9,7 +9,7 @@ interface ReportBuilder {
 	abstract void logDebug(String message)
 
 	abstract void logFailed(String message)
-	
+
 	abstract void logFailed(String message, Throwable t)
 
 	abstract void logInfo(String message)
@@ -17,6 +17,8 @@ interface ReportBuilder {
 	abstract void logPassed(String message)
 
 	abstract void logWarning(String message)
+
+	abstract void addImageFromPath(String path)
 
 	abstract Path getReportPath()
 

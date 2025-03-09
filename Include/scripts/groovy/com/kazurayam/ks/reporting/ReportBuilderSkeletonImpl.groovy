@@ -15,7 +15,7 @@ public class ReportBuilderSkeletonImpl implements ReportBuilder {
 	}
 
 	private ReportBuilderSkeletonImpl() {}
-
+	
 	@Override
 	void flushReport() {}
 
@@ -43,12 +43,16 @@ public class ReportBuilderSkeletonImpl implements ReportBuilder {
 	void logFailed(String message) {
 		println "[FAIL] " + message
 	}
-	
+
 	@Override
 	void logFailed(String message, Throwable t) {
 		println "[FAIL] " + message
 	}
 
+	@Override
+	void addImageFromPath(String path) {
+		// does nothing
+	}
 
 	@Override
 	Path getReportPath() {
