@@ -8,12 +8,12 @@ TestObject makeTestObject(String id, String xpath) {
 	tObj.addProperty("xpath", ConditionType.EQUALS, xpath)
 	return tObj
 }
-TestObject validButton = makeTestObject("validButton", "//a[@id='btn-make-appointment']")
-TestObject invalidButton = makeTestObject("validButton", "//a[@id='btn-make-disappointment']")
+TestObject validBtn = makeTestObject("validBtn", "//a[@id='btn-make-appointment']")
+TestObject invalidBtn = makeTestObject("invalidBtn", "//a[@id='btn-make-disappointment']")
 
 WebUI.openBrowser("http://demoaut.katalon.com/")
-WebUI.verifyElementPresent(validButton, 10, FailureHandling.OPTIONAL)
-WebUI.verifyElementPresent(invalidButton, 10, FailureHandling.OPTIONAL)
-WebUI.verifyElementPresent(invalidButton, 10, FailureHandling.OPTIONAL)
+//WebUI.verifyElementPresent(validBtn, 10, FailureHandling.OPTIONAL)
+WebUI.verifyElementPresent(invalidBtn, 10, FailureHandling.CONTINUE_ON_FAILURE)
+//WebUI.verifyElementPresent(invalidBtn, 10, FailureHandling.STOP_ON_FAILURE)
 WebUI.closeBrowser()
 

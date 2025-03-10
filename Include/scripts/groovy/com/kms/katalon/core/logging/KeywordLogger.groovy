@@ -1,5 +1,7 @@
 package com.kms.katalon.core.logging;
 
+import java.nio.file.Path
+import java.nio.file.Paths
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,7 +17,6 @@ import com.kms.katalon.core.logging.testops.TestOpsLogHelper;
 import com.kms.katalon.core.main.ScriptEngine;
 import com.kms.katalon.core.util.TestCloudPropertyUtil;
 import com.kms.katalon.util.MaskedTextUtil;
-
 
 public class KeywordLogger {
 
@@ -296,6 +297,17 @@ public class KeywordLogger {
 		Map<String, String> exceptionAttributes = xmlKeywordLogger.getAttributesFrom(throwable);
 		attributes.putAll(exceptionAttributes);
 		logFailed(message, attributes);
+
+		// println "[KeywordLogger#logFailed] attributes=" + attributes.toString()
+		for (Map.Entry<String, ReportBuilder> pair: reportBuilders.entrySet()) {
+			pair.getValue().logFailed(message, throwable)
+			if (attributes.containsKey(StringConstants.XML_LOG_ATTACHMENT_PROPERTY)) {
+				String pngName = attributes.get(StringConstants.XML_LOG_ATTACHMENT_PROPERTY)
+				// e.g, "attachment": "1741504754841.png"
+				Path attachmentPath = Paths.get(RunConfiguration.getReportFolder()).resolve(pngName)
+				pair.getValue().addImageFromPath(attachmentPath.toString())
+			}
+		}
 	}
 
 	public void logFailed(String message, Map<String, String> attributes) {
@@ -335,6 +347,11 @@ public class KeywordLogger {
 	public void logWarning(String message, Map<String, String> attributes) {
 		logger.warn(message);
 		xmlKeywordLogger.logWarning(message, attributes);
+		for (Map.Entry<String, ReportBuilder> pair: reportBuilders.entrySet()) {
+			String className = pair.getKey()
+			ReportBuilder rb = pair.getValue()
+			rb.getInstance().logWarning(message)
+		}
 	}
 
 
