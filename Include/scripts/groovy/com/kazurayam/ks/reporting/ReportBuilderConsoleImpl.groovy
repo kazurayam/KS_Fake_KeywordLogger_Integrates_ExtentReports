@@ -2,19 +2,19 @@ package com.kazurayam.ks.reporting
 
 import java.nio.file.Path
 
-public class ReportBuilderSkeletonImpl implements ReportBuilder {
+public class ReportBuilderConsoleImpl implements ReportBuilder {
 
 	// The "Bill Pugh Singleton" pattern is applied
 	// See https://www.baeldung.com/java-bill-pugh-singleton-implementation
 	private class SingletonHolder {
-		private static final ReportBuilderSkeletonImpl INSTANCE = new ReportBuilderSkeletonImpl()
+		private static final ReportBuilderConsoleImpl INSTANCE = new ReportBuilderConsoleImpl()
 	}
 
-	public static ReportBuilderSkeletonImpl getInstance() {
+	public static ReportBuilderConsoleImpl getInstance() {
 		return SingletonHolder.INSTANCE
 	}
 
-	private ReportBuilderSkeletonImpl() {}
+	private ReportBuilderConsoleImpl() {}
 	
 	@Override
 	void flushReport() {}
