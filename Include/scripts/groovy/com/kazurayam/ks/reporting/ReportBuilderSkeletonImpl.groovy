@@ -54,13 +54,7 @@ public class ReportBuilderSkeletonImpl implements ReportBuilder {
 		// does nothing
 	}
 
-	@Override
 	Path getReportPath() {
-		return null
-	}
-
-	@Override
-	String getReportContent() {
 		return null
 	}
 }

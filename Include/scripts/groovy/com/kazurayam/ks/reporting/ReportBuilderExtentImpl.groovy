@@ -152,12 +152,8 @@ public class ReportBuilderExtentImpl implements ReportBuilder {
 		}
 	}
 
-	@Override
 	Path getReportPath() {
 		return reportPath
 	}
 
-	@Override
-	String getReportContent() {
-	}
 }

@@ -19,8 +19,5 @@ interface ReportBuilder {
 	abstract void logWarning(String message)
 
 	abstract void addImageFromPath(String path)
-
-	abstract Path getReportPath()
-
-	abstract String getReportContent()
+	
 }
