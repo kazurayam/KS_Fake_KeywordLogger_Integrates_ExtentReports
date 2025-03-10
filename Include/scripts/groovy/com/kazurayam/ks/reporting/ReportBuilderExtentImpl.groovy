@@ -125,7 +125,7 @@ public class ReportBuilderExtentImpl implements ReportBuilder {
 
 	@Override
 	void addImageFromPath(String path) {
-		println "[ReportBuilderExtentImpl#addImageFromPath] path=${path}"
+		//println "[ReportBuilderExtentImpl#addImageFromPath] path=${path}"
 		if (logger != null) {
 			logger.addScreenCaptureFromPath(path)
 		}
@@ -155,5 +155,4 @@ public class ReportBuilderExtentImpl implements ReportBuilder {
 	Path getReportPath() {
 		return reportPath
 	}
-
 }
