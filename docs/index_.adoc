@@ -134,9 +134,11 @@ Simple, isn't it?
 
 == Difficulty
 
-How can I actually change the `logInfo` method of `com.kms.katalon.core.logging.KeywordLogger` object?
+I want to change the `logInfo` method of `com.kms.katalon.core.logging.KeywordLogger` object. Can I do it?
 
-Katalon Studio is not an open-source software. It is a proprietary software product of Katalon who exclusively owns the source code; though a set of copy is published.
+No, I can't. Katalon Studio is not an open-source software. It is a proprietary software product of Katalon who exclusively owns the source code; though a set of copy is published.
+
+But I am really interested in the idea. It will be a fun. I would try to find a bad hack.
 
 == Bad Hack
 
