@@ -175,7 +175,7 @@ Now, I can create a fake `com.kms.katalon.core.logging.KeywordLogger` in the `In
 
 Then what will happen? --- My fake `KeywordLogger` will have higher precedence to the real `KeywordLogger` provided by Katalon. Effectively I can change the source code of the `KeywordLogger` as I like.
 
-I created this project and tried this idea. It worked!
+I created this project and tried this idea.
 
 ## Description
 
