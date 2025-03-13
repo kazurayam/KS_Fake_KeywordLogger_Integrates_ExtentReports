@@ -1,0 +1,6 @@
+{
+	"ReportAdapter_classes" : [
+		"com.kazurayam.ks.reporting.ReportAdapterConsoleImpl",
+		"com.kazurayam.ks.reporting.ReportAdapterExtentImpl"
+	]
+}

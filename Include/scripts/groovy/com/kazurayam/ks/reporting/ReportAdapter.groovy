@@ -2,7 +2,7 @@ package com.kazurayam.ks.reporting
 
 import java.nio.file.Path
 
-interface ReportBuilder {
+interface ReportAdapter {
 
 	abstract void flushReport()
 

@@ -21,17 +21,17 @@ import com.kms.katalon.core.webui.driver.DriverFactory
  *
  * @author kazurayam
  */
-public class ReportBuilderExtentImpl implements ReportBuilder {
+public class ReportAdapterExtentImpl implements ReportAdapter {
 
 	// The "Bill Pugh Singleton" pattern is applied
 	// See https://www.baeldung.com/java-bill-pugh-singleton-implementation
 	private class SingletonHolder {
-		private static final ReportBuilderExtentImpl INSTANCE = new ReportBuilderExtentImpl()
+		private static final ReportAdapterExtentImpl INSTANCE = new ReportAdapterExtentImpl()
 	}
-	public static ReportBuilderExtentImpl getInstance() {
+	public static ReportAdapterExtentImpl getInstance() {
 		return SingletonHolder.INSTANCE
 	}
-	private ReportBuilderExtentImpl() {}
+	private ReportAdapterExtentImpl() {}
 
 	//
 	private static final String OUTPUT_DIR_NAME = "Extent"

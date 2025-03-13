@@ -1,5 +1,5 @@
-import com.kazurayam.ks.reporting.ReportBuilder
-import com.kazurayam.ks.reporting.ReportBuilderExtentImpl
+import com.kazurayam.ks.reporting.ReportAdapter
+import com.kazurayam.ks.reporting.ReportAdapterExtentImpl
 import com.kms.katalon.core.annotation.AfterTestCase
 import com.kms.katalon.core.annotation.AfterTestSuite
 import com.kms.katalon.core.annotation.BeforeTestCase
@@ -14,7 +14,7 @@ class CustomReportsListener {
     
 	@BeforeTestSuite
 	def beforeTestSuite(TestSuiteContext testSuiteContext) {
-    	ReportBuilderExtentImpl.getInstance().createExtentReports(testSuiteContext,
+    	ReportAdapterExtentImpl.getInstance().createExtentReports(testSuiteContext,
 			"document title", "report name")
         runAsTestSuite = true
 	}
@@ -22,20 +22,20 @@ class CustomReportsListener {
 	@BeforeTestCase
 	def beforeTestCase(TestCaseContext testCaseContext) {
 		if (!runAsTestSuite) {
-    		ReportBuilderExtentImpl.getInstance().createExtentReports(null,
+    		ReportAdapterExtentImpl.getInstance().createExtentReports(null,
 				"document title", "report name")
 		}
-		ReportBuilderExtentImpl.getInstance().createExtentTest(testCaseContext)
+		ReportAdapterExtentImpl.getInstance().createExtentTest(testCaseContext)
 	}
 
 	@AfterTestCase
 	def afterTestCase(TestCaseContext testCaseContext) throws IOException {
-		ReportBuilderExtentImpl.getInstance().flushReport()
+		ReportAdapterExtentImpl.getInstance().flushReport()
 	}
 
 	@AfterTestSuite
 	def afterTestSuite() {
-		ReportBuilderExtentImpl.getInstance().flushReport()
+		ReportAdapterExtentImpl.getInstance().flushReport()
 	}
 
 }
